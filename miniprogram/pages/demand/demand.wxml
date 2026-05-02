@@ -1,0 +1,69 @@
+<view class="demand-page">
+  <!-- 状态筛选 -->
+  <view class="status-bar">
+    <scroll-view class="status-scroll" scroll-x>
+      <view 
+        class="status-item {{item.id === currentStatus ? 'active' : ''}}"
+        wx:for="{{statusList}}"
+        wx:key="id"
+        bindtap="selectStatus"
+        data-id="{{item.id}}"
+      >
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+    <view class="publish-btn" bindtap="publishDemand">
+      <image src="/static/icons/add.png" />
+      <text>发布需求</text>
+    </view>
+  </view>
+
+  <!-- 需求列表 -->
+  <view class="demand-list">
+    <view 
+      class="demand-item card"
+      wx:for="{{demands}}"
+      wx:key="id"
+      bindtap="goDetail"
+      data-id="{{item.id}}"
+    >
+      <view class="demand-header">
+        <text class="demand-title text-ellipsis-2">{{item.title}}</text>
+        <view class="demand-status tag {{item.status === 'open' ? 'tag-primary' : item.status === 'in_progress' ? 'tag-warning' : 'tag-success'}}">
+          {{item.status === 'open' ? '招募中' : item.status === 'in_progress' ? '进行中' : '已完成'}}
+        </view>
+      </view>
+      
+      <text class="demand-desc text-ellipsis-2">{{item.description}}</text>
+      
+      <view class="demand-meta">
+        <view class="meta-left">
+          <text class="budget">预算: ¥{{item.budget_min}}-{{item.budget_max}}</text>
+          <text class="deadline" wx:if="{{item.deadline}}">截止: {{item.deadline}}</text>
+        </view>
+        <view class="meta-right">
+          <text class="views">{{item.views}} 浏览</text>
+          <text class="time">{{item.created_at}}</text>
+        </view>
+      </view>
+      
+      <view class="demand-publisher">
+        <image class="avatar" src="{{item.publisher_avatar}}" />
+        <text class="name">{{item.publisher_name}}</text>
+      </view>
+    </view>
+
+    <!-- 加载更多 -->
+    <view class="load-more" wx:if="{{demands.length > 0}}">
+      <text wx:if="{{loading}}">加载中...</text>
+      <text wx:elif="{{!hasMore}}">没有更多了</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{!loading && demands.length === 0}}">
+      <image src="/static/images/empty-demand.png" mode="aspectFit" />
+      <text>暂无需求</text>
+      <button class="btn btn-outline" bindtap="publishDemand">发布需求</button>
+    </view>
+  </view>
+</view>

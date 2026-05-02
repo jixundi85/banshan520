@@ -1,0 +1,1 @@
+import{j as e}from"./index-g7trER_V.js";function t({message:r="加载中..."}){return e.jsxs("div",{className:"flex flex-col items-center justify-center min-h-[400px]",children:[e.jsx("div",{className:"w-12 h-12 border-4 border-white/20 border-t-blue-500 rounded-full animate-spin mb-4"}),e.jsx("p",{className:"text-white/60",children:r})]})}export{t as P};

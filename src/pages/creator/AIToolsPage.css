@@ -1,0 +1,318 @@
+/* ===================================
+   AI Tools Page Styles
+   =================================== */
+
+/* Hero 区域 */
+.tools-hero {
+  background: linear-gradient(180deg, #0f0f23 0%, #0D1117 100%);
+}
+
+.tools-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(108, 92, 231, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(46, 117, 182, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* 搜索框 */
+.tools-search {
+  position: relative;
+}
+
+.tools-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #484F58;
+}
+
+.tools-search-input {
+  width: 100%;
+  padding: 14px 16px 14px 46px;
+  background: rgba(22, 27, 34, 0.8);
+  border: 1px solid rgba(48, 54, 61, 0.8);
+  border-radius: 14px;
+  color: #E6EDF3;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(12px);
+}
+
+.tools-search-input::placeholder {
+  color: #484F58;
+}
+
+.tools-search-input:focus {
+  border-color: rgba(46, 117, 182, 0.6);
+  box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.1);
+  background: rgba(22, 27, 34, 0.95);
+}
+
+/* ===== 热门横滚 ===== */
+.tools-hot-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+
+.tools-hot-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.tools-hot-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 12px 16px;
+  background: rgba(22, 27, 34, 0.7);
+  border: 1px solid rgba(48, 54, 61, 0.7);
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  min-width: 170px;
+  max-width: 200px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.tools-hot-card:hover {
+  background: rgba(33, 38, 45, 0.9);
+  border-color: rgba(46, 117, 182, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.tools-hot-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* ===== 分类 Tab ===== */
+.tools-category-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tools-category-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(22, 27, 34, 0.6);
+  border: 1px solid rgba(48, 54, 61, 0.6);
+  border-radius: 10px;
+  color: #8B949E;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tools-category-btn:hover {
+  color: #E6EDF3;
+  border-color: rgba(46, 117, 182, 0.4);
+  background: rgba(33, 38, 45, 0.8);
+}
+
+.tools-category-btn.active {
+  color: #fff;
+  background: rgba(46, 117, 182, 0.15);
+  border-color: rgba(46, 117, 182, 0.5);
+  box-shadow: 0 0 0 1px rgba(46, 117, 182, 0.2);
+}
+
+.tools-category-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: rgba(46, 117, 182, 0.3);
+  color: #60a5fa;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ===== 工具卡片网格 ===== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .tools-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 工具卡片 */
+.tool-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(22, 27, 34, 0.7);
+  border: 1px solid rgba(48, 54, 61, 0.6);
+  border-radius: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.tool-card:hover {
+  background: rgba(33, 38, 45, 0.9);
+  border-color: rgba(46, 117, 182, 0.35);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(46, 117, 182, 0.1);
+}
+
+/* 顶部光晕条 */
+.tool-card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.tool-card:hover .tool-card-glow {
+  opacity: 1;
+}
+
+/* 卡片头部 */
+.tool-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tool-card-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.tool-card-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #E6EDF3;
+  line-height: 1.3;
+}
+
+.tool-card-name-en {
+  font-size: 11px;
+  color: #484F58;
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+/* 徽标 */
+.tool-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tool-badge.hot {
+  background: rgba(251, 146, 60, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(251, 146, 60, 0.25);
+}
+
+.tool-badge.star {
+  background: rgba(250, 204, 21, 0.12);
+  color: #facc15;
+  border: 1px solid rgba(250, 204, 21, 0.2);
+}
+
+/* 描述 */
+.tool-card-desc {
+  font-size: 13px;
+  color: #8B949E;
+  line-height: 1.7;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 标签 */
+.tool-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tool-tag {
+  display: inline-flex;
+  padding: 3px 8px;
+  background: rgba(48, 54, 61, 0.6);
+  border: 1px solid rgba(72, 79, 88, 0.4);
+  border-radius: 5px;
+  font-size: 11px;
+  color: #6e7681;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tool-card:hover .tool-tag {
+  background: rgba(46, 117, 182, 0.08);
+  border-color: rgba(46, 117, 182, 0.2);
+  color: #8B949E;
+}
+
+/* 底部访问按钮 */
+.tool-card-footer {
+  padding-top: 8px;
+  border-top: 1px solid rgba(48, 54, 61, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.tool-card-footer.visible {
+  opacity: 1;
+}

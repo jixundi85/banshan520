@@ -1,0 +1,219 @@
+/* 培训课程页样式 */
+
+.training-page {
+  min-height: 100vh;
+  background: #F5F5F5;
+}
+
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background: #ffffff;
+}
+
+.search-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 72rpx;
+  background: #F5F5F5;
+  border-radius: 36rpx;
+  padding: 0 30rpx;
+  margin-right: 20rpx;
+}
+
+.search-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 16rpx;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.sort-btn {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  background: #F5F5F5;
+  border-radius: 36rpx;
+}
+
+.sort-btn text {
+  font-size: 26rpx;
+  margin-right: 8rpx;
+}
+
+.sort-btn image {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+/* 分类标签 */
+.category-scroll {
+  background: #ffffff;
+  padding: 20rpx 0;
+  white-space: nowrap;
+}
+
+.category-list {
+  display: flex;
+  padding: 0 20rpx;
+}
+
+.category-item {
+  padding: 16rpx 32rpx;
+  margin: 0 10rpx;
+  background: #F5F5F5;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.category-item.active {
+  background: linear-gradient(135deg, #4A90E2, #67C23A);
+  color: #ffffff;
+}
+
+/* 课程列表 */
+.course-list {
+  padding: 20rpx;
+}
+
+.course-item {
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+}
+
+.course-cover {
+  width: 240rpx;
+  height: 180rpx;
+  flex-shrink: 0;
+}
+
+.course-content {
+  flex: 1;
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-title {
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 16rpx;
+  line-height: 1.4;
+}
+
+.course-creator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.creator-avatar {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  margin-right: 12rpx;
+}
+
+.creator-name {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.course-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.course-tags {
+  display: flex;
+  gap: 12rpx;
+}
+
+.course-tags .tag {
+  font-size: 20rpx;
+  padding: 6rpx 12rpx;
+}
+
+.course-price {
+  display: flex;
+  align-items: baseline;
+}
+
+.price {
+  font-size: 32rpx;
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+.original-price {
+  font-size: 22rpx;
+  color: #999999;
+  text-decoration: line-through;
+  margin-left: 12rpx;
+}
+
+.course-meta {
+  display: flex;
+  gap: 24rpx;
+}
+
+.meta-item {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+/* 排序选择器 */
+.sort-picker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sort-content {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+}
+
+.sort-title {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.sort-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+
+.sort-item.active {
+  color: #4A90E2;
+}
+
+.sort-item image {
+  width: 32rpx;
+  height: 32rpx;
+}

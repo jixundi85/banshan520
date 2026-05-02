@@ -1,0 +1,106 @@
+<view class="login-page">
+  <!-- Logo区域 -->
+  <view class="logo-section">
+    <image class="logo" src="/static/images/logo.png" mode="aspectFit" />
+    <text class="app-name">AIGC内容平台</text>
+    <text class="app-desc">AI赋能创作，开启智能时代</text>
+  </view>
+
+  <!-- 表单区域 -->
+  <view class="form-section">
+    <!-- 邮箱 -->
+    <view class="form-item">
+      <image class="form-icon" src="/static/icons/email.png" />
+      <input 
+        class="form-input"
+        type="text"
+        placeholder="请输入邮箱"
+        placeholder-class="placeholder"
+        value="{{formData.email}}"
+        data-field="email"
+        bindinput="onInput"
+      />
+    </view>
+
+    <!-- 昵称（注册时显示） -->
+    <view class="form-item" wx:if="{{mode === 'register'}}">
+      <image class="form-icon" src="/static/icons/nickname.png" />
+      <input 
+        class="form-input"
+        type="text"
+        placeholder="请输入昵称"
+        placeholder-class="placeholder"
+        value="{{formData.nickname}}"
+        data-field="nickname"
+        bindinput="onInput"
+      />
+    </view>
+
+    <!-- 密码 -->
+    <view class="form-item">
+      <image class="form-icon" src="/static/icons/password.png" />
+      <input 
+        class="form-input"
+        type="password"
+        placeholder="请输入密码"
+        placeholder-class="placeholder"
+        value="{{formData.password}}"
+        data-field="password"
+        bindinput="onInput"
+      />
+    </view>
+
+    <!-- 确认密码（注册时显示） -->
+    <view class="form-item" wx:if="{{mode === 'register'}}">
+      <image class="form-icon" src="/static/icons/password.png" />
+      <input 
+        class="form-input"
+        type="password"
+        placeholder="请确认密码"
+        placeholder-class="placeholder"
+        value="{{formData.confirmPassword}}"
+        data-field="confirmPassword"
+        bindinput="onInput"
+      />
+    </view>
+
+    <!-- 错误提示 -->
+    <view class="error-tip" wx:if="{{error}}">
+      <text>{{error}}</text>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button 
+      class="btn btn-primary submit-btn"
+      loading="{{loading}}"
+      bindtap="onSubmit"
+    >
+      {{mode === 'login' ? '登录' : '注册'}}
+    </button>
+
+    <!-- 忘记密码 -->
+    <view class="forgot-password" wx:if="{{mode === 'login'}}" bindtap="onForgotPassword">
+      <text>忘记密码？</text>
+    </view>
+
+    <!-- 切换登录/注册 -->
+    <view class="switch-mode">
+      <text>{{mode === 'login' ? '还没有账号？' : '已有账号？'}}</text>
+      <text class="link" bindtap="switchMode">
+        {{mode === 'login' ? '立即注册' : '立即登录'}}
+      </text>
+    </view>
+
+    <!-- 第三方登录 -->
+    <view class="divider">
+      <view class="divider-line"></view>
+      <text>其他登录方式</text>
+      <view class="divider-line"></view>
+    </view>
+
+    <button class="wechat-btn" bindtap="onWechatLogin">
+      <image src="/static/icons/wechat.png" />
+      <text>微信登录</text>
+    </button>
+  </view>
+</view>

@@ -1,0 +1,568 @@
+.create-tutorial-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  color: #fff;
+  padding: 0;
+}
+
+.tutorial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tutorial-content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  padding: 24px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group.flex-2 {
+  flex: 2;
+}
+
+.form-group.flex-1 {
+  flex: 1;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.section-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 16px;
+  margin-top: -12px;
+}
+
+/* 课程详情富文本编辑器 */
+.detail-editor-container {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.detail-editor-container .ql-toolbar {
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.detail-editor-container .ql-container {
+  border: none;
+  min-height: 300px;
+  font-size: 15px;
+}
+
+.detail-editor-container .ql-editor {
+  min-height: 300px;
+  color: #1e293b;
+}
+
+.detail-editor-container .ql-editor p {
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+
+.detail-editor-container .ql-editor img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.detail-preview-toggle {
+  margin-bottom: 16px;
+}
+
+.preview-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(102, 126, 234, 0.2);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 8px;
+  color: #667eea;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.preview-btn:hover {
+  background: rgba(102, 126, 234, 0.3);
+}
+
+.detail-preview {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 16px;
+}
+
+.detail-preview h4 {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.preview-content {
+  color: #e2e8f0;
+  line-height: 1.8;
+}
+
+.preview-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.preview-content h1,
+.preview-content h2,
+.preview-content h3 {
+  color: #f1f5f9;
+  margin: 20px 0 12px;
+}
+
+.preview-content p {
+  margin-bottom: 12px;
+}
+
+/* 章节 */
+.chapters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chapter-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.chapter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.chapter-header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.chapter-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.chapter-level-select {
+  padding: 6px 10px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 6px;
+  color: #a78bfa;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+}
+
+.chapter-level-select:focus {
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.drag-handle {
+  color: rgba(255, 255, 255, 0.3);
+  cursor: grab;
+}
+
+.chapter-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.2);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.chapter-title-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 0;
+}
+
+.chapter-title-input:focus {
+  outline: none;
+}
+
+.chapter-title-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.chapter-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.free-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.free-toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: #667eea;
+}
+
+.chapter-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.chapter-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.chapter-body {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.lesson-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.lesson-number {
+  width: 28px;
+  height: 28px;
+  background: rgba(102, 126, 234, 0.2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #667eea;
+  flex-shrink: 0;
+}
+
+.lesson-content {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.lesson-title-input {
+  flex: 2;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.lesson-title-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.lesson-title-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.lesson-duration-input {
+  flex: 1;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+}
+
+.lesson-duration-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.lesson-duration-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.lesson-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.lesson-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.lesson-btn.delete:hover {
+  background: rgba(255, 107, 107, 0.3);
+  color: #ff6b6b;
+}
+
+.lesson-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.add-lesson-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px dashed rgba(102, 126, 234, 0.5);
+  border-radius: 8px;
+  color: rgba(102, 126, 234, 0.8);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  justify-content: center;
+}
+
+.add-lesson-btn:hover {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.add-chapter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  margin-top: 16px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 2px dashed rgba(102, 126, 234, 0.4);
+  border-radius: 12px;
+  color: #667eea;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-chapter-btn:hover {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+/* 价格输入组 */
+.price-input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.price-field label {
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 6px;
+}
+
+.price-field input {
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.price-field input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* 预览讲师信息 */
+.preview-teacher {
+  margin: 16px 0;
+  padding: 12px;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 8px;
+}
+
+.preview-teacher-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #a78bfa;
+  margin-bottom: 4px;
+}
+
+.preview-teacher-expertise {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.preview-current-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ef4444;
+  margin-right: 12px;
+}
+
+.preview-original-price {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+}
+
+/* 课时视频上传 */
+.lesson-video-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.lesson-video-upload-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: rgba(102, 126, 234, 0.2);
+  border: 1px dashed rgba(102, 126, 234, 0.5);
+  border-radius: 6px;
+  color: #667eea;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lesson-video-upload-btn:hover {
+  background: rgba(102, 126, 234, 0.3);
+  border-style: solid;
+}
+
+.video-uploaded-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(74, 222, 128, 0.2);
+  border-radius: 4px;
+  color: #4ade80;
+  font-size: 11px;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .tutorial-content {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .tutorial-header {
+    padding: 16px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .lesson-content {
+    flex-direction: column;
+  }
+
+  .lesson-duration-input {
+    flex: none;
+  }
+}

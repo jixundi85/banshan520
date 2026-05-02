@@ -1,0 +1,56 @@
+<view class="creator-page">
+  <!-- 加载状态 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 创作者信息 -->
+  <view class="creator-header" wx:if="{{!loading && creator}}">
+    <image class="avatar" src="{{creator.avatar}}" />
+    <text class="nickname">{{creator.nickname}}</text>
+    <text class="expertise">{{creator.expertise}}</text>
+    
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-num">{{creator.rating}}</text>
+        <text class="stat-label">评分</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{creator.order_count || 0}}</text>
+        <text class="stat-label">完成订单</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">¥{{creator.earnings || 0}}</text>
+        <text class="stat-label">累计收益</text>
+      </view>
+    </view>
+    
+    <text class="bio">{{creator.bio || '暂无简介'}}</text>
+  </view>
+
+  <!-- 创作者课程 -->
+  <view class="section" wx:if="{{!loading && courses.length > 0}}">
+    <view class="section-header">
+      <text class="section-title">TA的课程</text>
+    </view>
+    
+    <view class="course-list">
+      <view 
+        class="course-item"
+        wx:for="{{courses}}"
+        wx:key="id"
+        bindtap="goCourseDetail"
+        data-id="{{item.id}}"
+      >
+        <image class="course-cover" src="{{item.cover_image}}" />
+        <view class="course-info">
+          <text class="course-title text-ellipsis">{{item.title}}</text>
+          <view class="course-meta">
+            <text class="price">¥{{item.price}}</text>
+            <text class="students">{{item.student_count}}人在学</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

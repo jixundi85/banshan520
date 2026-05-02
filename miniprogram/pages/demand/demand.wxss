@@ -1,0 +1,138 @@
+/* 需求广场样式 */
+
+.demand-page {
+  min-height: 100vh;
+  background: #F5F5F5;
+}
+
+/* 状态栏 */
+.status-bar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.status-scroll {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.status-item {
+  display: inline-block;
+  padding: 16rpx 32rpx;
+  margin-right: 20rpx;
+  background: #F5F5F5;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.status-item.active {
+  background: linear-gradient(135deg, #4A90E2, #67C23A);
+  color: #ffffff;
+}
+
+.publish-btn {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  background: linear-gradient(135deg, #4A90E2, #67C23A);
+  border-radius: 32rpx;
+  margin-left: 20rpx;
+}
+
+.publish-btn image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 8rpx;
+}
+
+.publish-btn text {
+  font-size: 24rpx;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* 需求列表 */
+.demand-list {
+  padding: 20rpx;
+}
+
+.demand-item {
+  padding: 30rpx;
+}
+
+.demand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+
+.demand-title {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-right: 20rpx;
+  line-height: 1.4;
+}
+
+.demand-status {
+  flex-shrink: 0;
+}
+
+.demand-desc {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.demand-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.meta-left, .meta-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.budget {
+  font-size: 28rpx;
+  color: #FF6B6B;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.deadline, .views, .time {
+  font-size: 22rpx;
+  color: #999999;
+  margin-bottom: 4rpx;
+}
+
+.demand-publisher {
+  display: flex;
+  align-items: center;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #F5F5F5;
+}
+
+.demand-publisher .avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 12rpx;
+}
+
+.demand-publisher .name {
+  font-size: 24rpx;
+  color: #666666;
+}

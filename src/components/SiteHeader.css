@@ -1,0 +1,35 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(15, 15, 35, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Logo 样式 - 无 hover 效果 */
+.site-header a[href="/"] {
+  transform: none !important;
+  transition: none !important;
+}
+
+.site-header a[href="/"]:hover {
+  transform: none !important;
+  background: transparent !important;
+}
+
+.site-header a[href="/"] img {
+  transform: none !important;
+  transition: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.site-header a[href="/"]:hover img {
+  transform: none !important;
+  opacity: 1 !important;
+}

@@ -1,0 +1,29 @@
+✅ 数据库初始化完成
+
+╔═══════════════════════════════════════════════════════╗
+║                                                       ║
+║   🤖 半山AIX 后端服务                                 ║
+║                                                       ║
+║   服务地址: http://localhost:3001                     ║
+║                                                       ║
+║   API 接口:                                           ║
+║   ────────────────────────                            ║
+║   AI对话:                                             ║
+║   - POST /api/ai/chat        对话                    ║
+║   - GET  /api/ai/suggestions 建议问题                ║
+║   - GET  /api/ai/settings     获取设置                ║
+║   - GET  /api/ai/knowledge   知识库列表               ║
+║   - POST /api/ai/knowledge   添加知识                ║
+║                                                       ║
+║   需求广场:                                           ║
+║   - GET  /api/demands        需求列表                ║
+║   - GET  /api/demands/:id    需求详情                ║
+║   - POST /api/demands        发布需求                ║
+║   - PUT  /api/demands/:id    更新需求                ║
+║   - DELETE /api/demands/:id  删除需求                ║
+║   - POST /api/demands/:id/bid 投标                  ║
+║                                                       ║
+║   健康检查: http://localhost:3001/api/health         ║
+║                                                       ║
+╚═══════════════════════════════════════════════════════╝
+  

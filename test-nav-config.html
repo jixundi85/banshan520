@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>导航配置测试工具</title>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #1a1a2e;
+      color: #fff;
+    }
+    h1 { color: #6366f1; }
+    .config-box {
+      background: #2d2d44;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    pre {
+      background: #1a1a2e;
+      padding: 15px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    button {
+      background: #6366f1;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px;
+    }
+    button:hover { background: #4f46e5; }
+    .success { color: #22c55e; }
+    .error { color: #ef4444; }
+  </style>
+</head>
+<body>
+  <h1>🧭 导航配置测试工具</h1>
+
+  <div class="config-box">
+    <h3>当前 localStorage 中的配置：</h3>
+    <pre id="currentConfig">加载中...</pre>
+  </div>
+
+  <div class="config-box">
+    <h3>操作：</h3>
+    <button onclick="setTestConfig()">设置测试配置（碳硅共振圈）</button>
+    <button onclick="setDefaultConfig()">恢复默认配置</button>
+    <button onclick="clearConfig()">清除配置</button>
+    <button onclick="refreshPage()">刷新本页</button>
+  </div>
+
+  <div class="config-box">
+    <h3>操作结果：</h3>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // 显示当前配置
+    function showCurrentConfig() {
+      const config = localStorage.getItem('admin_navConfig');
+      document.getElementById('currentConfig').textContent = config || '(空)';
+    }
+
+    // 设置测试配置（模拟后台修改）
+    function setTestConfig() {
+      const testConfig = {
+        items: [
+          { id: 'home', label: '首页', path: '/', icon: '🏠', status: 'visible', order: 1 },
+          { id: 'training', label: 'AIGC课程', path: '/training', icon: '🎓', status: 'visible', order: 2 },
+          { id: 'demand', label: '需求广场', path: '/demand', icon: '💼', status: 'visible', order: 3 },
+          { id: 'community', label: '碳硅共振圈', path: '/community', icon: '👥', status: 'visible', order: 4 },
+          { id: 'event', label: '赛事论坛', path: '/event', icon: '🏆', status: 'visible', order: 5 },
+          { id: 'creator', label: '签约创作者', path: '/creator', icon: '✨', status: 'visible', order: 6 }
+        ]
+      };
+      localStorage.setItem('admin_navConfig', JSON.stringify(testConfig));
+      showResult('✅ 已设置测试配置（碳硅共振圈）', 'success');
+      showCurrentConfig();
+
+      // 触发事件通知其他页面
+      window.dispatchEvent(new Event('navConfigUpdated'));
+    }
+
+    // 恢复默认配置
+    function setDefaultConfig() {
+      const defaultConfig = {
+        items: [
+          { id: 'home', label: '首页', path: '/', icon: '🏠', status: 'visible', order: 1 },
+          { id: 'training', label: 'AIGC课程', path: '/training', icon: '🎓', status: 'visible', order: 2 },
+          { id: 'demand', label: '需求广场', path: '/demand', icon: '💼', status: 'visible', order: 3 },
+          { id: 'community', label: '交流社区', path: '/community', icon: '👥', status: 'visible', order: 4 },
+          { id: 'event', label: '赛事论坛', path: '/event', icon: '🏆', status: 'visible', order: 5 },
+          { id: 'creator', label: '签约创作者', path: '/creator', icon: '✨', status: 'visible', order: 6 }
+        ]
+      };
+      localStorage.setItem('admin_navConfig', JSON.stringify(defaultConfig));
+      showResult('✅ 已恢复默认配置（交流社区）', 'success');
+      showCurrentConfig();
+
+      // 触发事件通知其他页面
+      window.dispatchEvent(new Event('navConfigUpdated'));
+    }
+
+    // 清除配置
+    function clearConfig() {
+      localStorage.removeItem('admin_navConfig');
+      showResult('✅ 已清除配置', 'success');
+      showCurrentConfig();
+    }
+
+    // 刷新页面
+    function refreshPage() {
+      location.reload();
+    }
+
+    // 显示结果
+    function showResult(msg, type) {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `<span class="${type}">${msg}</span>`;
+    }
+
+    // 初始化
+    showCurrentConfig();
+  </script>
+</body>
+</html>

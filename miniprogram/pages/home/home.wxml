@@ -1,0 +1,151 @@
+<view class="home">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <image class="search-icon" src="/static/icons/search.png" mode="aspectFit" />
+      <input 
+        class="search-input" 
+        placeholder="搜索课程、创作者、需求" 
+        placeholder-class="placeholder"
+        bindconfirm="onSearch"
+      />
+    </view>
+  </view>
+
+  <!-- 轮播图 -->
+  <swiper class="banner" indicator-dots autoplay circular>
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image class="banner-image" src="{{item.image}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 快捷入口 -->
+  <view class="quick-nav">
+    <view class="nav-item" bindtap="goTraining">
+      <image class="nav-icon" src="/static/icons/course.png" />
+      <text class="nav-text">AI课程</text>
+    </view>
+    <view class="nav-item" bindtap="goDemand">
+      <image class="nav-icon" src="/static/icons/demand.png" />
+      <text class="nav-text">发布需求</text>
+    </view>
+    <view class="nav-item" bindtap="goCreatorPage" data-id="0">
+      <image class="nav-icon" src="/static/icons/creator.png" />
+      <text class="nav-text">成为创作者</text>
+    </view>
+    <view class="nav-item" bindtap="goCommunity">
+      <image class="nav-icon" src="/static/icons/community.png" />
+      <text class="nav-text">社区交流</text>
+    </view>
+  </view>
+
+  <!-- 数据统计 -->
+  <view class="stats-section">
+    <view class="stats-card">
+      <view class="stats-item">
+        <text class="stats-num">{{stats.userCount}}</text>
+        <text class="stats-label">注册用户</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-num">{{stats.courseCount}}</text>
+        <text class="stats-label">精品课程</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-num">{{stats.creatorCount}}</text>
+        <text class="stats-label">认证创作者</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐课程 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">精选课程</text>
+      <view class="section-more" bindtap="goTraining">
+        <text>查看更多</text>
+        <image src="/static/icons/arrow-right.png" />
+      </view>
+    </view>
+    <scroll-view class="course-scroll" scroll-x enable-flex>
+      <view 
+        class="course-card" 
+        wx:for="{{featuredCourses}}" 
+        wx:key="id"
+        bindtap="goCourseDetail"
+        data-id="{{item.id}}"
+      >
+        <image class="course-cover" src="{{item.cover_image}}" mode="aspectFill" />
+        <view class="course-info">
+          <text class="course-title text-ellipsis">{{item.title}}</text>
+          <view class="course-meta">
+            <text class="course-price">¥{{item.price}}</text>
+            <text class="course-students">{{item.student_count}}人在学</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 热门创作者 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">热门创作者</text>
+      <view class="section-more" bindtap="goCommunity">
+        <text>查看更多</text>
+        <image src="/static/icons/arrow-right.png" />
+      </view>
+    </view>
+    <scroll-view class="creator-scroll" scroll-x enable-flex>
+      <view 
+        class="creator-card" 
+        wx:for="{{topCreators}}" 
+        wx:key="id"
+        bindtap="goCreatorPage"
+        data-id="{{item.id}}"
+      >
+        <image class="creator-avatar" src="{{item.avatar}}" mode="aspectFill" />
+        <text class="creator-name text-ellipsis">{{item.nickname}}</text>
+        <view class="creator-tags">
+          <text class="tag tag-primary">{{item.expertise}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 热门需求 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">热门需求</text>
+      <view class="section-more" bindtap="goDemand">
+        <text>查看更多</text>
+        <image src="/static/icons/arrow-right.png" />
+      </view>
+    </view>
+    <view class="demand-list">
+      <view 
+        class="demand-card" 
+        wx:for="{{hotDemands}}" 
+        wx:key="id"
+        bindtap="goDemandDetail"
+        data-id="{{item.id}}"
+      >
+        <view class="demand-header">
+          <text class="demand-title text-ellipsis-2">{{item.title}}</text>
+          <text class="demand-budget">¥{{item.budget_min}}-{{item.budget_max}}</text>
+        </view>
+        <view class="demand-footer">
+          <text class="demand-date">{{item.created_at}}</text>
+          <text class="demand-views">{{item.views}} 浏览</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 登录提示 -->
+  <view class="login-tip" wx:if="{{!isLoggedIn}}">
+    <text>登录后享受更多服务</text>
+    <button class="btn btn-primary" bindtap="goLogin">立即登录</button>
+  </view>
+</view>

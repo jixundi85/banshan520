@@ -1,0 +1,96 @@
+<view class="training-page">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <image class="search-icon" src="/static/icons/search.png" mode="aspectFit" />
+      <input 
+        class="search-input" 
+        placeholder="搜索课程"
+        value="{{keyword}}"
+        bindconfirm="onSearch"
+      />
+    </view>
+    <view class="sort-btn" bindtap="showSortPicker">
+      <text>{{currentSortName}}</text>
+      <image src="/static/icons/sort.png" />
+    </view>
+  </view>
+
+  <!-- 分类标签 -->
+  <scroll-view class="category-scroll" scroll-x>
+    <view class="category-list">
+      <view 
+        class="category-item {{item.id === currentCategory ? 'active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="id"
+        bindtap="selectCategory"
+        data-id="{{item.id}}"
+      >
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 课程列表 -->
+  <view class="course-list">
+    <view 
+      class="course-item card"
+      wx:for="{{courses}}"
+      wx:key="id"
+      bindtap="goCourseDetail"
+      data-id="{{item.id}}"
+    >
+      <image class="course-cover" src="{{item.cover_image}}" mode="aspectFill" />
+      <view class="course-content">
+        <text class="course-title text-ellipsis-2">{{item.title}}</text>
+        <view class="course-creator">
+          <image class="creator-avatar" src="{{item.creator_avatar}}" />
+          <text class="creator-name">{{item.creator_name}}</text>
+        </view>
+        <view class="course-footer">
+          <view class="course-tags">
+            <text class="tag tag-primary">{{item.category}}</text>
+            <text class="tag">{{item.level}}</text>
+          </view>
+          <view class="course-price">
+            <text class="price">¥{{item.price}}</text>
+            <text class="original-price" wx:if="{{item.original_price > item.price}}">¥{{item.original_price}}</text>
+          </view>
+        </view>
+        <view class="course-meta">
+          <text class="meta-item">{{item.student_count}}人在学</text>
+          <text class="meta-item">{{item.rating}}分</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 加载更多 -->
+    <view class="load-more" wx:if="{{courses.length > 0}}">
+      <text wx:if="{{loading}}">加载中...</text>
+      <text wx:elif="{{!hasMore}}">没有更多了</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{!loading && courses.length === 0}}">
+      <image src="/static/images/empty-course.png" mode="aspectFit" />
+      <text>暂无课程</text>
+    </view>
+  </view>
+
+  <!-- 排序选择器 -->
+  <view class="sort-picker" wx:if="{{showSortPicker}}" bindtap="hideSortPicker">
+    <view class="sort-content" catchtap="stopPropagation">
+      <view class="sort-title">排序方式</view>
+      <view 
+        class="sort-item {{item.id === currentSort ? 'active' : ''}}"
+        wx:for="{{sorts}}"
+        wx:key="id"
+        bindtap="selectSort"
+        data-id="{{item.id}}"
+      >
+        <text>{{item.name}}</text>
+        <image wx:if="{{item.id === currentSort}}" src="/static/icons/check.png" />
+      </view>
+    </view>
+  </view>
+</view>
